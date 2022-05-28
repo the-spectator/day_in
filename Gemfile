@@ -47,7 +47,7 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # Testing framework for rails; we are using rc for rails 7 support
-  gem 'rspec-rails', '6.0.0.rc1'
+  gem "rspec-rails", "6.0.0.rc1"
 
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -64,3 +64,9 @@ group :development do
   # gem "spring"
 end
 
+group :test do
+  # Capybara is an integration testing tool for rack based web applications
+  gem "capybara", "~> 3.37"
+  gem "test-prof", "~> 1.0"
+  gem "cuprite", "~> 0.13"
+end
