@@ -6,6 +6,10 @@ require_relative '../config/environment'
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+require "test_prof/recipes/rspec/let_it_be"
+require "test_prof/before_all/isolator"
+require "test_prof/factory_prof/nate_heckler"
+
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -61,4 +65,24 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Add `travel_to`
+  # See https://andycroll.com/ruby/replace-timecop-with-rails-time-helpers-in-rspec/
+  config.include ActiveSupport::Testing::TimeHelpers
+
+  config.after do
+    # Make sure every example starts with the current time
+    travel_back
+
+    # Clear ActiveJob jobs
+    if defined?(ActiveJob) && ActiveJob::QueueAdapters::TestAdapter === ActiveJob::Base.queue_adapter
+      ActiveJob::Base.queue_adapter.enqueued_jobs.clear
+      ActiveJob::Base.queue_adapter.performed_jobs.clear
+    end
+
+    if defined?(ActionMailer)
+      # Clear deliveries
+      ActionMailer::Base.deliveries.clear
+    end
+  end
 end
