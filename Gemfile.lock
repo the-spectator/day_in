@@ -113,6 +113,9 @@ GEM
       websocket-driver (>= 0.6, < 0.8)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    good_migrations (0.2.1)
+      activerecord (>= 3.1)
+      railties (>= 3.1)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     io-console (0.5.11)
@@ -252,6 +255,7 @@ DEPENDENCIES
   factory_bot_rails (~> 6.2)
   faker (~> 2.21)
   faraday (~> 2.3)
+  good_migrations
   jsbundling-rails
   pagy (~> 5.10)
   pg (~> 1.1)
