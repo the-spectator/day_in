@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 const { execSync } = require("child_process");
 
-const pagyPath = execSync(
-  "echo $(bundle show 'pagy')/lib/javascripts"
-).toString();
+const pagyPath = execSync("echo $(bundle show 'pagy')/lib/javascripts")
+  .toString()
+  .replace(/\n$/, "");
 
 require("esbuild")
   .build({
@@ -17,3 +17,5 @@ require("esbuild")
     target: "es2015",
   })
   .catch(() => process.exit(1));
+
+// "build": "NODE_PATH=\"$(bundle show 'pagy')/lib/javascripts\" esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
