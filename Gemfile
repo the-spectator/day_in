@@ -27,9 +27,6 @@ gem "stimulus-rails"
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jbuilder"
-
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
@@ -49,6 +46,10 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
+  # Testing framework for rails; we are using rc for rails 7 support
+  gem "rspec-rails", "6.0.0.rc1"
+  gem "factory_bot_rails", "~> 6.2"
+
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
@@ -64,3 +65,10 @@ group :development do
   # gem "spring"
 end
 
+group :test do
+  # Capybara is an integration testing tool for rack based web applications
+  gem "capybara", "~> 3.37"
+  gem "test-prof", "~> 1.0"
+  gem "cuprite", "~> 0.13"
+  gem "faker", "~> 2.21"
+end
