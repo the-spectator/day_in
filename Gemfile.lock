@@ -209,6 +209,8 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.0.4)
       railties (>= 6.0.0)
+    strong_migrations (1.0.0)
+      activerecord (>= 5.2)
     strscan (3.0.3)
     test-prof (1.0.9)
     thor (1.2.1)
@@ -250,6 +252,7 @@ DEPENDENCIES
   rspec-rails (= 6.0.0.rc1)
   sprockets-rails
   stimulus-rails
+  strong_migrations (~> 1.0)
   test-prof (~> 1.0)
   turbo-rails
   web-console

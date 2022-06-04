@@ -39,6 +39,9 @@ gem "redis", "~> 4.0"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# Catch unsafe migrations in development
+gem "strong_migrations", "~> 1.0"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
