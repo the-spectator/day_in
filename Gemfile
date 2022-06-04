@@ -42,6 +42,9 @@ gem "bootsnap", require: false
 # Catch unsafe migrations in development
 gem "strong_migrations", "~> 1.0"
 
+# ruby http client library
+gem "faraday", "~> 2.3"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
