@@ -11,11 +11,12 @@
     "esbuild": "^0.14.39",
     "postcss": "^8.4.14",
     "postcss-cli": "^9.1.0",
+    "postcss-import": "^14.1.0",
     "postcss-nesting": "^10.1.7",
     "tailwindcss": "^3.0.24"
   },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
+    "build": "./esbuild.js",
     "build:css": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css"
   }
 }

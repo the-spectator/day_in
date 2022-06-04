@@ -45,6 +45,9 @@ gem "strong_migrations", "~> 1.0"
 # ruby http client library
 gem "faraday", "~> 2.3"
 
+# pagination library
+gem 'pagy', '~> 5.10'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
