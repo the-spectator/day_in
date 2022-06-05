@@ -49,7 +49,10 @@ gem "good_migrations"
 gem "faraday", "~> 2.3"
 
 # pagination library
-gem 'pagy', '~> 5.10'
+gem "pagy", '~> 5.10'
+
+# view component is a replacement for partial and embracing more component based view
+gem "view_component", "~> 2.56"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
