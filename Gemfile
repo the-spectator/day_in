@@ -78,6 +78,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Language server protocol for better integrations with IDE
+  gem "ruby-lsp", "~> 0.3.8"
 end
 
 group :test do
