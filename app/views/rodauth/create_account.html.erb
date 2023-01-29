@@ -5,6 +5,24 @@
     <%= content_tag(:span, rodauth.field_error(rodauth.login_param), class: "block mt-1 text-red-600 text-xs dark:text-red-400", id: "login_error_message") if rodauth.field_error(rodauth.login_param) %>
   </div>
 
+  <div class="mb-6">
+    <%= form.label "name", "Name", class: "block text-sm font-semibold" %>
+    <%= form.text_field :name, value: params[:name], id: "name", required: true, class: "mt-2 text-sm w-full px-3 py-2 border rounded-md dark:bg-gray-900 dark:text-gray-100 dark:focus:bg-gray-800 #{rodauth.field_error(:name) ? "border-red-600 focus:ring-red-600 focus:border-red-600 dark:border-red-400 dark:focus:ring-red-400" : "border-gray-300 dark:border-gray-700 dark:focus:border-emerald-400 dark:focus:ring-emerald-400" }", aria: ({ invalid: true, describedby: "login_error_message" } if rodauth.field_error(:name)) %>
+    <%= content_tag(:span, rodauth.field_error(:name), class: "block mt-1 text-red-600 text-xs dark:text-red-400", id: "login-name-error_message") if rodauth.field_error(:name) %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label "date_of_birth", "Date of Birth", class: "block text-sm font-semibold" %>
+    <%= form.date_field :date_of_birth, value: params[:date_of_birth], id: "date_of_birth", required: true, class: "mt-2 text-sm w-full px-3 py-2 border rounded-md dark:bg-gray-900 dark:text-gray-100 dark:focus:bg-gray-800 #{rodauth.field_error(:date_of_birth) ? "border-red-600 focus:ring-red-600 focus:border-red-600 dark:border-red-400 dark:focus:ring-red-400" : "border-gray-300 dark:border-gray-700 dark:focus:border-emerald-400 dark:focus:ring-emerald-400" }", aria: ({ invalid: true, describedby: "login_error_message" } if rodauth.field_error(:date_of_birth)) %>
+    <%= content_tag(:span, rodauth.field_error(:date_of_birth), class: "block mt-1 text-red-600 text-xs dark:text-red-400", id: "login-date-of_birth-error_message") if rodauth.field_error(:date_of_birth) %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label "gender", "Gender", class: "block text-sm font-semibold" %>
+    <%= form.select :gender, options_for_select(Profile.genders.map { |k, v| [k.titleize, k] }), value: params[:gender], id: "gender", required: true, class: "mt-2 text-sm w-full px-3 py-2 border rounded-md dark:bg-gray-900 dark:text-gray-100 dark:focus:bg-gray-800 #{rodauth.field_error(:gender) ? "border-red-600 focus:ring-red-600 focus:border-red-600 dark:border-red-400 dark:focus:ring-red-400" : "border-gray-300 dark:border-gray-700 dark:focus:border-emerald-400 dark:focus:ring-emerald-400" }", aria: ({ invalid: true, describedby: "login_error_message" } if rodauth.field_error(:gender)) %>
+    <%= content_tag(:span, rodauth.field_error(:gender), class: "block mt-1 text-red-600 text-xs dark:text-red-400", id: "login-gender_error_message") if rodauth.field_error(:gender) %>
+  </div>
+
   <% if rodauth.require_login_confirmation? %>
     <div class="mb-6">
       <%= form.label "login-confirm", rodauth.login_confirm_label, class: "block text-sm font-semibold" %>

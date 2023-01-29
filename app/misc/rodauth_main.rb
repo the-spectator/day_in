@@ -75,6 +75,23 @@ class RodauthMain < Rodauth::Rails::Auth
       db.after_commit { email.deliver_later }
     end
 
+    before_create_account do
+      # Validate presence of the name field
+      throw_error_status(422, "name", "must be present") unless param_or_nil("name")
+      throw_error_status(422, "gender", "must be present") unless param_or_nil("gender")
+      throw_error_status(422, "date_of_birth", "must be present") unless param_or_nil("date_of_birth")
+    end
+
+    after_create_account do
+      # Create the associated profile record with name
+      Profile.create!(account_id: account_id, name: param("name"), date_of_birth: param("date_of_birth"), gender: param("gender"))
+    end
+
+    after_close_account do
+      # Delete the associated profile record
+      Profile.find_by!(account_id: account_id).destroy
+    end
+
     # ==> Flash
     # Match flash keys with ones already used in the Rails app.
     # flash_notice_key :success # default is :notice
