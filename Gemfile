@@ -88,4 +88,5 @@ group :test do
   gem "test-prof", "~> 1.0"
   gem "cuprite", "~> 0.13"
   gem "faker", "~> 2.21"
+  gem "shoulda-matchers", '~> 5.3'
 end
