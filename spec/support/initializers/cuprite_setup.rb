@@ -5,6 +5,7 @@
 # See https://github.com/rubycdp/cuprite
 
 require "capybara/cuprite"
+require_relative "../system_test_helpers"
 
 Capybara.register_driver(:cuprite) do |app|
   Capybara::Cuprite::Driver.new(
@@ -17,7 +18,6 @@ Capybara.register_driver(:cuprite) do |app|
 end
 
 Capybara.javascript_driver = :cuprite
-
 
 RSpec.configure do |config|
   config.include SystemTestHelpers, type: :system

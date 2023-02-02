@@ -54,6 +54,9 @@ gem "pagy", '~> 5.10'
 # view component is a replacement for partial and embracing more component based view
 gem "view_component", "~> 2.56"
 
+# modern auth framework
+gem "rodauth-rails", "~> 1.7"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

@@ -1,0 +1,6 @@
+<% if rodauth.logged_in? %>
+  <%= link_to "Sign out", rodauth.logout_path, method: :post %>
+<% else %>
+  <%= link_to "Sign in", rodauth.login_path %>
+  <%= link_to "Sign up", rodauth.create_account_path %>
+<% end %>
